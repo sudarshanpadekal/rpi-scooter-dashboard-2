@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+opencv-python
+python-multipart
+aiofiles
+sqlite-utils

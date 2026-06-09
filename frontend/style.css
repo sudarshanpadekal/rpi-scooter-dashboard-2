@@ -1,0 +1,280 @@
+:root {
+  --bg0: #0d1117;
+  --bg1: #1a1f2e;
+  --card0: #1f2937;
+  --card1: #161b22;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.68);
+  --blue: #58a6ff;
+  --blue2: #79c0ff;
+  --border: rgba(48, 54, 61, 0.5);
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, var(--bg0) 0%, var(--bg1) 100%);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  background: rgba(13, 17, 23, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(48, 54, 61, 0.35);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: rgba(88, 166, 255, 0.12);
+  border: 1px solid rgba(88, 166, 255, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.06);
+}
+
+.dot--offline {
+  background: #b0b7c3;
+  box-shadow: 0 0 0 6px rgba(176, 183, 195, 0.10);
+}
+
+.dot--online {
+  background: #2ea043;
+  box-shadow: 0 0 0 6px rgba(46, 160, 67, 0.12);
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 72px);
+  gap: 2px;
+}
+
+.left {
+  flex: 2;
+  background: #0a0e17;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.mapWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.right {
+  flex: 1;
+  padding: 20px;
+  background: linear-gradient(180deg, #161b22 0%, #0f1419 100%);
+  overflow-y: auto;
+  box-shadow: inset 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.right::-webkit-scrollbar {
+  width: 8px;
+}
+
+.right::-webkit-scrollbar-track {
+  background: #0f1419;
+}
+
+.right::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+.right::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+.card {
+  background: linear-gradient(135deg, var(--card0) 0%, var(--card1) 100%);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(48, 54, 61, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(88, 166, 255, 0.15);
+  border-color: rgba(88, 166, 255, 0.3);
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.hint {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.card h2 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.95;
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  text-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--blue2);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(48, 54, 61, 0.5);
+  background: rgba(88, 166, 255, 0.08);
+}
+
+.badge--safe {
+  color: #a8f5c2;
+  border-color: rgba(46, 160, 67, 0.35);
+  background: rgba(46, 160, 67, 0.12);
+}
+
+.docs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.doc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(88, 166, 255, 0.1);
+  color: var(--blue);
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid rgba(88, 166, 255, 0.25);
+  transition: all 0.15s ease;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.doc:hover {
+  background: rgba(88, 166, 255, 0.18);
+  border-color: rgba(88, 166, 255, 0.55);
+  transform: translateY(-1px);
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.18);
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+/* Leaflet map styling */
+.leaflet-container {
+  background-color: #1a1f2e !important;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid rgba(48, 54, 61, 0.45) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background: rgba(22, 27, 34, 0.85) !important;
+  color: #c9d1d9 !important;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left {
+    height: 45vh;
+  }
+
+  .right {
+    height: auto;
+  }
+}
+
