@@ -39,6 +39,16 @@ def service():
         "next_service": get_next_service()
     }
 
+from pydantic import BaseModel
+
+class ServiceUpdate(BaseModel):
+    date: str
+
+@app.post("/service")
+def set_service(service: ServiceUpdate):
+    update_service(service.date) # Updates the SQLite DB
+    return {"message": "Success", "next_service": service.date}
+
 # Static files (resolved relative to this file)
 import os
 
@@ -67,6 +77,6 @@ if __name__ == "__main__":
 
     uvicorn.run(
     app,
-    host="127.0.0.1",
+    host="0.0.0.0",
     port=8080
     )

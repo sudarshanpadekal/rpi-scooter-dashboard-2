@@ -206,12 +206,19 @@ body {
   border-radius: 999px;
   border: 1px solid rgba(48, 54, 61, 0.5);
   background: rgba(88, 166, 255, 0.08);
+  font-weight: 700;
 }
 
 .badge--safe {
   color: #a8f5c2;
   border-color: rgba(46, 160, 67, 0.35);
   background: rgba(46, 160, 67, 0.12);
+}
+
+.badge--danger {
+  color: #ff7b72;
+  border-color: rgba(248, 81, 73, 0.35);
+  background: rgba(248, 81, 73, 0.12);
 }
 
 .docs {
@@ -233,6 +240,7 @@ body {
   transition: all 0.15s ease;
   font-size: 13px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .doc:hover {
@@ -245,6 +253,66 @@ body {
 #map {
   height: 100%;
   width: 100%;
+}
+
+/* Modal Styling Rules */
+.modal {
+  display: none; /* Controlled via JS */
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: linear-gradient(135deg, var(--card0) 0%, var(--card1) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 85%;
+  height: 85%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 45px 15px 15px 15px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 1;
+  color: var(--blue);
+}
+
+#docFrame {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+/* Dark theme styling corrections for routing panel instructions text overlay boxes */
+.leaflet-routing-container {
+  background-color: var(--card0) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px;
+}
+.leaflet-routing-alt h2, .leaflet-routing-alt h3, .leaflet-routing-icon {
+  color: var(--text) !important;
 }
 
 /* Leaflet map styling */
@@ -277,4 +345,3 @@ body {
     height: auto;
   }
 }
-

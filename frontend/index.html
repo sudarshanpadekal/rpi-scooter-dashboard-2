@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scooter Dashboard</title>
   <link rel="stylesheet" href="style.css">
+  
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 </head>
 
 <body>
@@ -35,11 +42,10 @@
     <section class="right">
       <div class="card">
         <div class="cardHead">
-          <h2>Speed</h2>
+          <h2>Current Time</h2>
           <div class="meta" id="lastUpdated">—</div>
         </div>
-        <h1 id="speed">0 km/h</h1>
-        <div class="hint">Fetching GPS every 1s</div>
+        <h1 id="clock">00:00</h1>
       </div>
 
       <div class="card">
@@ -57,13 +63,20 @@
       <div class="card">
         <h2>Documents</h2>
         <div class="docs">
-          <a class="doc" href="/documents/rc.pdf" target="_blank" rel="noreferrer">RC</a>
-          <a class="doc" href="/documents/insurance.pdf" target="_blank" rel="noreferrer">Insurance</a>
-          <a class="doc" href="/documents/puc.pdf" target="_blank" rel="noreferrer">PUC</a>
+          <a class="doc" href="/documents/rc.pdf">RC</a>
+          <a class="doc" href="/documents/insurance.pdf">Insurance</a>
+          <a class="doc" href="/documents/puc.pdf">PUC</a>
         </div>
       </div>
     </section>
   </main>
+
+  <div id="docModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <iframe id="docFrame" src="" frameborder="0"></iframe>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
